@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Snake">
+      <UniqueIdentifier>{a1e14977-1e55-4025-847f-ffe84640f711}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Snake\Snake.c">
+      <Filter>Snake</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Snake\Snake.h">
+      <Filter>Snake</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
