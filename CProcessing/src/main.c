@@ -9,16 +9,16 @@
 // documentation link:
 // https://inside.digipen.edu/main/GSDP:GAM100/CProcessing
 //
-// Copyright © 2020 DigiPen, All rights reserved.
+// Copyright ï¿½ 2020 DigiPen, All rights reserved.
 //---------------------------------------------------------
 
 #include "windows.h"
 #include <stdio.h>
 #include "cprocessing.h"
-#include "Snake/Snake.h"
+#include "Snek.h"
 
-static const float WINDOW_SCALE = 0.8f;
-static const int WINDOW_WIDTH = 1600, WINDOW_HEIGHT = 1600;
+//static const float WINDOW_SCALE = 0.8f;
+static const int WINDOW_WIDTH = 1024, WINDOW_HEIGHT = 1024;
 
 // use CP_Engine_SetNextGameState to specify this function as the initialization function
 // this function will be called once at the beginning of the program
@@ -54,10 +54,9 @@ int main(void)
 	
 	CP_System_SetFrameRate(60.0f);
 
-	//CP_System_ShowConsole();
-	//freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
-	//printf("Hello World");
-
+	CP_System_ShowConsole();
+	freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
+	
 	CP_Engine_SetNextGameState(Snake_Init, Snake_Update, Snake_Exit);
 	CP_Engine_Run();
 	return 0;
