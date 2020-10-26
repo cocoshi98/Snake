@@ -15,7 +15,7 @@
 #include "windows.h"
 #include <stdio.h>
 #include "cprocessing.h"
-#include "Snek.h"
+#include "Snake.h"
 
 //static const float WINDOW_SCALE = 0.8f;
 static const int WINDOW_WIDTH = 1024, WINDOW_HEIGHT = 1024;
