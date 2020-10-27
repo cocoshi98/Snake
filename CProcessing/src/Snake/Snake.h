@@ -84,10 +84,10 @@ typedef struct SnakeGame
 } SnakeGame;
 
 
-void snek_Init(void);
-void snek_Update(void);
+void Snake_Init(void);
+void Snake_Update(void);
 void DrawApple(const Grid *m_grid, Apple *m_apple);
-void snek_Exit(void);
+void Snake_Exit(void);
 void UpdateGameTick(float *gameTimer, Snake *snake);
 void CheckNextCell(const Grid *grid, Snake *m_snake, Apple *m_apple);
 void DrawSnek(Snake *m_snake, const Grid *m_grid);
