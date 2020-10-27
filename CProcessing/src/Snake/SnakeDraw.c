@@ -18,6 +18,8 @@ void DrawSnek(Snake* m_snake, const Grid* m_grid)
 #endif // !
 */
 #include <stdio.h>
+#include <stdlib.h>
+#include "cprocessing.h"
 #include "SnakeDraw.h"
 
 #define FOOD 1

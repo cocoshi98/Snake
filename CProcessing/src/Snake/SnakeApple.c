@@ -41,6 +41,8 @@ void DrawApple(const Grid* m_grid, Apple* m_apple)
 #include <stdlib.h>
 #include "SnakeApple.h"
 #include <stdio.h>
+#include "cprocessing.h" 
+
 #define FOOD 1
 #define GRID_HEIGHT 12
 #define GRID_WIDTH 24
@@ -68,7 +70,7 @@ void food_draw(void)
 			if (grid[x][y] == FOOD)
 			{
 				CP_Settings_Fill(CP_Color_Create(255, 0, 0, 255)); //red color
-				CP_Graphics_DrawRect((float)x * 30, (float)y * 30, 30, 30);
+				CP_Graphics_DrawRect((float)(x * 30.0), (float)(y * 30.0), 30, 30);
 			}
 		}
 	}
