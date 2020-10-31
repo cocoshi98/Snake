@@ -74,14 +74,24 @@ typedef struct Apple
 	CP_Color color;
 } Apple;
 
+typedef struct scoretimer
+{
+	char text_timer[100];
+	int time_count , score , total;
+	float time, maxtime, fontsize;
+	CP_Vector pos;
+
+} scoretimer;
+
 typedef struct SnakeGame
 {
 	Snake m_snake;
 	Grid m_grid;
 	float updateTimer;
 	Apple m_apple;
-	eDirections movementBuffer;
-	float m_scoretimer;
+	eDirections movementBuffer; 
+	scoretimer m_scoretimer;
+
 } SnakeGame;
 
 //MIN YI------------------------------------
@@ -95,24 +105,28 @@ typedef struct Button {
 	float buttonHalfsize_x;
 	float buttonHalfsize_y;
 	float fontsize;
-} Button;
-//------------------------------------
 
+} Button;
+
+
+//------------------------------------
 void Snake_Init(void);
 void Snake_Update(void);
 void DrawApple(const Grid *m_grid, Apple *m_apple);
 void Snake_Exit(void);
 void UpdateGameTick(float *gameTimer, Snake *snake);
-void CheckNextCell(const Grid *grid, Snake *m_snake, Apple *m_apple);
+void CheckNextCell(const Grid *grid, Snake *m_snake, Apple *m_apple, scoretimer* m_scoretimer);
 void DrawSnek(Snake *m_snake, const Grid *m_grid);
 void MoveSnake(Snake *m_snake, bool *canMove, float *timer);
-void wrapCoordinates(SnakeSegment *snake);
+void wrapCoordinates(SnakeSegment *snake, Snake* m_snake, Grid* m_grid);
 void spawnApple(Snake *m_snake, Apple *m_apple);
 void PlayerInput(Snake *m_snake, eDirections *movementBuffer);
-void DrawGrid(const Grid *m_Grid);
+void DrawGrid(Grid *m_Grid);
 void snakeGrow(Snake *m_snake);
+void ScoreTimerUpdate(scoretimer* m_scoretimer);
+void display_score(scoretimer* m_scoretimer);
 
-//MIN YI------------------------------------
+//
 void MainMenu_Init(void);
 void MainMenu_Update(void);
 void MainMenu_Exit(void);
@@ -124,6 +138,6 @@ void CheckHoverQuitButton(void);
 void GameOver_Init(void);
 void GameOver_Update(void);
 void GameOver_Exit(void);
-void ScoreTimerUpdate(float* m_scoretimer);
+
 
 #endif // !_SNAKE_H_

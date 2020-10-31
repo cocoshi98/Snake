@@ -2,17 +2,19 @@
 #define SNAKE_COLLISION_
 
 #include "Snake.h"
-void CheckNextCell(const Grid* grid, Snake* m_snake, Apple* m_apple)
+void CheckNextCell(const Grid* grid, Snake* m_snake, Apple* m_apple, scoretimer* m_scoretimer)
 {
 	//if snake head
 	if (m_snake->segments[0].pos.x + m_snake->movVec.x == m_apple->pos.x && m_snake->segments[0].pos.y + m_snake->movVec.y == m_apple->pos.y)
 	{
 		snakeGrow(m_snake);
 		spawnApple(m_snake, m_apple);
+		m_scoretimer->score += 10;
 	}
-
+	
 	for (int i = 1; i < m_snake->segmentLength; i++)
 	{
+		
 		if (m_snake->segments[0].pos.x + m_snake->movVec.x == m_snake->segments[i].pos.x && m_snake->segments[0].pos.y + m_snake->movVec.y == m_snake->segments[i].pos.y)
 		{
 			m_snake->isDead = true;
@@ -22,6 +24,7 @@ void CheckNextCell(const Grid* grid, Snake* m_snake, Apple* m_apple)
 	}
 
 }
+
 
 #endif // !
 

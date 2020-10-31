@@ -32,6 +32,16 @@ void GameVariablesInit(SnakeGame *game)
 
     game->m_apple.color = CP_Color_Create(255, 0, 0, 255);
     spawnApple(&game->m_snake, &game->m_apple);
+
+    memset(game->m_scoretimer.text_timer,0, 100 * sizeof(char));
+
+    game->m_scoretimer.fontsize = 200.0f;
+    game->m_scoretimer.maxtime = 1.0f;
+    game->m_scoretimer.pos.x =  CP_System_GetWindowWidth() * (9.3f / 10);
+    game->m_scoretimer.pos.y =  CP_System_GetWindowHeight() * (1.0f / 10);
+    game->m_scoretimer.time_count = 0;
+    game->m_scoretimer.time = 0.0f;
+    game->m_scoretimer.score = 0;
 }
 
 void Snake_Init(void)
@@ -41,20 +51,21 @@ void Snake_Init(void)
 
 void Snake_Update(void)
 {
-
     UpdateGameTick(&myGame.updateTimer, &myGame.m_snake);
     PlayerInput(&myGame.m_snake, &myGame.movementBuffer);
 
     MoveSnake(&myGame.m_snake, &myGame.m_snake.canMove, &myGame.updateTimer);
-    CheckNextCell(&myGame.m_grid, &myGame.m_snake, &myGame.m_apple);
+    CheckNextCell(&myGame.m_grid, &myGame.m_snake, &myGame.m_apple,&myGame.m_scoretimer);
     //draw bg
-    CP_Settings_Background(CP_Color_Create(120, 120, 120, 255));
+    CP_Settings_Background(CP_Color_Create(0, 0, 0, 255));
     //draw grid
     DrawGrid(&myGame.m_grid);
     //draw our snake at its positions
     DrawSnek(&myGame.m_snake, &myGame.m_grid);
     //draw our apple on the grid
     DrawApple(&myGame.m_grid, &myGame.m_apple);
+    ScoreTimerUpdate(&myGame.m_scoretimer);
+   
 }
 
 void UpdateGameTick(float *gameTimer, Snake *snake)

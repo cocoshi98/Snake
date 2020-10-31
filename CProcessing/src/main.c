@@ -15,7 +15,7 @@
 #include "windows.h"
 #include <stdio.h>
 #include "cprocessing.h"
-#include "Snake.h"
+#include "Snake/Snake.h"
 
 //static const float WINDOW_SCALE = 0.8f;
 static const int WINDOW_WIDTH = 1024, WINDOW_HEIGHT = 1024;
@@ -57,7 +57,7 @@ int main(void)
 	CP_System_ShowConsole();
 	freopen_s((FILE**)stdout, "CONOUT$", "w", stdout);
 	
-	CP_Engine_SetNextGameState(Snake_Init, Snake_Update, Snake_Exit);
+	CP_Engine_SetNextGameState(MainMenu_Init, MainMenu_Update, MainMenu_Exit);
 	CP_Engine_Run();
 	return 0;
 }
