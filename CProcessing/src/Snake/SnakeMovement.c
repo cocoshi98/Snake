@@ -1,7 +1,7 @@
 #ifndef _SNAKE_MOVEMENT_
 #define _SNAKE_MOVEMENT_
 
-#include "snek.h"
+#include "Snake.h"
 void MoveSnake(Snake* m_snake, bool* canMove, float* timer)
 {
 	if (m_snake->canMove) {

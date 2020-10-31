@@ -1,7 +1,7 @@
 #ifndef _SNAKE_WALLS_
 #define _SNAKE_WALLS_
 
-#include "snek.h"
+#include "Snake.h"
 void wrapCoordinates(SnakeSegment* snek)
 {
 	//can add isDead here to bang the walls

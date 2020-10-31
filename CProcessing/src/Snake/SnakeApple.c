@@ -1,9 +1,9 @@
-/*
+
 #ifndef _SNAKE_APPLE_
 #define _SNAKE_APPLE_
 
 #include <stdlib.h>
-#include "snek.h"
+#include "Snake.h"
 void spawnApple(Snake* m_snake, Apple* m_apple)
 {
 	//find random coordinates for apple and set their x,y values
@@ -37,51 +37,51 @@ void DrawApple(const Grid* m_grid, Apple* m_apple)
 }
 
 #endif // !
-*/
-#include <stdlib.h>
-#include "SnakeApple.h"
-#include <stdio.h>
-#include "cprocessing.h" 
 
-#define FOOD 1
-#define GRID_HEIGHT 12
-#define GRID_WIDTH 24
-int grid[GRID_HEIGHT][GRID_WIDTH];
-int foodx, foody = 0;
-int coorX = 1;
-int coorY = 1;
-
-void create_food(void)
-{
-	foodx = rand() % (GRID_WIDTH - 2) + 1;
-	foody = rand() % (GRID_HEIGHT - 2) + 1;
-
-	grid[foodx][foody] = FOOD;
-	//CP_Image img1 = CP_Image_Load("./Assets/DigiPen_WHITE.png");
-	// Display the image at the mouse position
-	//CP_Image_Draw(img1, (float)foodx , (float)foody , 40, 40, 255);
-}
-void food_draw(void)
-{
-	for (int x = 1; x < GRID_WIDTH; x++)
-	{
-		for (int y = 1; y < GRID_HEIGHT; y++)
-		{
-			if (grid[x][y] == FOOD)
-			{
-				CP_Settings_Fill(CP_Color_Create(255, 0, 0, 255)); //red color
-				CP_Graphics_DrawRect((float)(x * 30.0), (float)(y * 30.0), 30, 30);
-			}
-		}
-	}
-}
-void eat_food(void)
-{
-	if (grid[coorX][coorY] == FOOD) //when snake eat food
-	{
-		grid[coorX][coorY] = 0; //clear food
-		//score = score + 10 ;
-		//snake++;
-		create_food(); //create new food
-	}
-}
+//#include <stdlib.h>
+//#include "SnakeApple.h"
+//#include <stdio.h>
+//#include "cprocessing.h" 
+//
+//#define FOOD 1
+//#define GRID_HEIGHT 12
+//#define GRID_WIDTH 24
+//int grid[GRID_HEIGHT][GRID_WIDTH];
+//int foodx, foody = 0;
+//int coorX = 1;
+//int coorY = 1;
+//
+//void create_food(void)
+//{
+//	foodx = rand() % (GRID_WIDTH - 2) + 1;
+//	foody = rand() % (GRID_HEIGHT - 2) + 1;
+//
+//	grid[foodx][foody] = FOOD;
+//	//CP_Image img1 = CP_Image_Load("./Assets/DigiPen_WHITE.png");
+//	// Display the image at the mouse position
+//	//CP_Image_Draw(img1, (float)foodx , (float)foody , 40, 40, 255);
+//}
+//void food_draw(void)
+//{
+//	for (int x = 1; x < GRID_WIDTH; x++)
+//	{
+//		for (int y = 1; y < GRID_HEIGHT; y++)
+//		{
+//			if (grid[x][y] == FOOD)
+//			{
+//				CP_Settings_Fill(CP_Color_Create(255, 0, 0, 255)); //red color
+//				CP_Graphics_DrawRect((float)(x * 30.0), (float)(y * 30.0), 30, 30);
+//			}
+//		}
+//	}
+//}
+//void eat_food(void)
+//{
+//	if (grid[coorX][coorY] == FOOD) //when snake eat food
+//	{
+//		grid[coorX][coorY] = 0; //clear food
+//		//score = score + 10 ;
+//		//snake++;
+//		create_food(); //create new food
+//	}
+//}
